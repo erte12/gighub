@@ -5,22 +5,30 @@
 }
 
 <h2>Add a Gig</h2>
-<form>
+
+@using (Html.BeginForm("Create", "Gigs"))
+{
     <div class="form-group">
         @Html.LabelFor(vm => vm.Venue)
         @Html.TextBoxFor(vm => vm.Venue, new { @class = "form-control" })
+        @Html.ValidationMessageFor(vm => vm.Venue)
     </div>
     <div class="form-group">
         @Html.LabelFor(vm => vm.Time)
         @Html.TextBoxFor(vm => vm.Time, new { @class = "form-control" })
+        @Html.ValidationMessageFor(vm => vm.Time)
+
     </div>
     <div class="form-group">
         @Html.LabelFor(vm => vm.Date)
         @Html.TextBoxFor(vm => vm.Date, new { @class = "form-control" })
+        @Html.ValidationMessageFor(vm => vm.Date)
+
     </div>
     <div class="form-group">
         @Html.LabelFor(vm => vm.Genre)
-        @Html.DropDownListFor(vm => vm.Genres, new SelectList(Model.Genres, "Id", "Name"), new { @class = "form-control" })
+        @Html.DropDownListFor(vm => vm.Genre, new SelectList(Model.Genres, "Id", "Name"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(vm => vm.Genre)
     </div>
     <button type="submit" class="btn btn-primary">Save</button>
-</form>
+}

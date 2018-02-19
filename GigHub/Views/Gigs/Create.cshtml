@@ -8,23 +8,22 @@
 
 @using (Html.BeginForm("Create", "Gigs"))
 {
+    <p class="alert alert-info">All fields are <strong >required</strong></p>
     @Html.AntiForgeryToken()
     <div class="form-group">
         @Html.LabelFor(vm => vm.Venue)
-        @Html.TextBoxFor(vm => vm.Venue, new { @class = "form-control" })
+        @Html.TextBoxFor(vm => vm.Venue, new { @class = "form-control", autofocus = "autofocus" })
         @Html.ValidationMessageFor(vm => vm.Venue)
     </div>
     <div class="form-group">
-        @Html.LabelFor(vm => vm.Time)
-        @Html.TextBoxFor(vm => vm.Time, new { @class = "form-control" })
-        @Html.ValidationMessageFor(vm => vm.Time)
-
+        @Html.LabelFor(vm => vm.Date)
+        @Html.TextBoxFor(vm => vm.Date, new { @class = "form-control", placeholder = "eg 1 Jan 2015" })
+        @Html.ValidationMessageFor(vm => vm.Date)
     </div>
     <div class="form-group">
-        @Html.LabelFor(vm => vm.Date)
-        @Html.TextBoxFor(vm => vm.Date, new { @class = "form-control" })
-        @Html.ValidationMessageFor(vm => vm.Date)
-
+        @Html.LabelFor(vm => vm.Time)
+        @Html.TextBoxFor(vm => vm.Time, new { @class = "form-control", placeholder = "eg 20:00" })
+        @Html.ValidationMessageFor(vm => vm.Time)
     </div>
     <div class="form-group">
         @Html.LabelFor(vm => vm.Genre)
